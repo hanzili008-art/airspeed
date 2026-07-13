@@ -164,6 +164,11 @@ async function warmUpDownload(bytes, signal) {
 
 function uploadRequest(bytes, signal, onProgress) {
   return new Promise((resolve, reject) => {
+    if (signal.aborted) {
+      reject(new DOMException("测试已停止", "AbortError"));
+      return;
+    }
+
     const xhr = new XMLHttpRequest();
     const payload = new Uint8Array(bytes);
     let reportedBytes = 0;
@@ -257,6 +262,7 @@ function createRunController(parentSignal, durationMs) {
   let endedByLimit = false;
   const abortFromParent = () => controller.abort();
   parentSignal.addEventListener("abort", abortFromParent, { once: true });
+  if (parentSignal.aborted) controller.abort();
 
   const timer = setTimeout(() => {
     endedByLimit = true;
