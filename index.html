@@ -72,7 +72,7 @@
           </div>
           <span class="scale-label scale-start">0</span>
           <span class="scale-label scale-mid">100</span>
-          <span class="scale-label scale-end">500+</span>
+          <span class="scale-label scale-end">1000+</span>
         </div>
 
         <div class="metrics" aria-label="测速结果">
@@ -89,6 +89,7 @@
               下载
             </div>
             <p><span id="downloadValue">--</span><small>Mbps</small></p>
+            <span class="metric-detail" id="downloadPeak">峰值 --</span>
           </div>
           <div class="metric">
             <div class="metric-label">
@@ -96,6 +97,7 @@
               上传
             </div>
             <p><span id="uploadValue">--</span><small>Mbps</small></p>
+            <span class="metric-detail" id="uploadPeak">峰值 --</span>
           </div>
         </div>
 
@@ -118,7 +120,9 @@
               省流
             </button>
           </div>
-          <p class="data-note" id="dataNote">预计使用约 45 MB 流量</p>
+          <p class="data-note" id="dataNote">
+            最多使用约 760 MB 流量，高速网络会使用更多流量
+          </p>
         </div>
       </section>
 
