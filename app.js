@@ -125,7 +125,7 @@ function throwIfAborted(signal) {
 
 async function testLatency(signal) {
   const samples = [];
-  ui.phaseLabel.textContent = "正在测试延迟";
+  ui.phaseLabel.textContent = "正在测试 Ping";
   ui.helperText.textContent = "连接最近的测速节点";
   ui.speedUnit.textContent = "ms";
 
@@ -135,7 +135,7 @@ async function testLatency(signal) {
       cache: "no-store",
       signal,
     });
-    if (!response.ok) throw new Error(`延迟测试失败 (${response.status})`);
+    if (!response.ok) throw new Error(`Ping 测试失败 (${response.status})`);
     await response.arrayBuffer();
     const elapsed = performance.now() - started;
 
@@ -399,7 +399,7 @@ function describeResult({ latency, download, upload }) {
   ui.broadbandValue.textContent = `约 ${broadbandTier}M 宽带`;
   ui.broadbandEstimate.hidden = false;
   ui.resultTitle.textContent = title;
-  ui.resultCopy.textContent = `当前连接相当于约 ${broadbandTier}M 宽带，适合${tasks.join("和")}。空闲延迟约 ${Math.round(latency)} ms；下载稳定 ${formatSpeed(download.stable)} Mbps，峰值 ${formatSpeed(download.peak)} Mbps；上传稳定 ${formatSpeed(upload.stable)} Mbps，峰值 ${formatSpeed(upload.peak)} Mbps。`;
+  ui.resultCopy.textContent = `当前连接相当于约 ${broadbandTier}M 宽带，适合${tasks.join("和")}。Ping 约 ${Math.round(latency)} ms；下载稳定 ${formatSpeed(download.stable)} Mbps，峰值 ${formatSpeed(download.peak)} Mbps；上传稳定 ${formatSpeed(upload.stable)} Mbps，峰值 ${formatSpeed(upload.peak)} Mbps。`;
 }
 
 async function runTest() {
