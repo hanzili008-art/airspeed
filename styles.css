@@ -336,6 +336,16 @@ h1 {
   font-weight: 500;
 }
 
+.metric-detail {
+  display: block;
+  min-height: 15px;
+  margin-top: 7px;
+  color: #8b8b90;
+  font-size: 11px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
 .broadband-estimate {
   display: grid;
   grid-template-columns: auto auto auto;
